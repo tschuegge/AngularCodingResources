@@ -8,14 +8,80 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
         <link rel="stylesheet" href="../styles/readthedocs.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Angular Coding Resources</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Angular Coding Resources</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -24,7 +90,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -34,57 +100,50 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>ColoredCircleComponent</li>
+  <li class="breadcrumb-item">Komponenten</li>
+  <li class="breadcrumb-item"
+  >
+  ColoredCircleComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
     <h3>Datei</h3>
 </p>
 <p class="comment">
-    <code>projects/angular-coding-resources/src/lib/colored-circle/colored-circle.component.ts</code>
+    <code>projects/angular-coding-resources/src/lib/colored-circle-component/colored-circle-component.ts</code>
 </p>
 
-    <p class="comment">
-        <h3>Beschreibung</h3>
-    </p>
-    <p class="comment">
-        <p>Zeigt einen Kreis an</p>
-
-    </p>
 
 
 
-    <p class="comment">
-        <h3>Beispiel</h3>
-    </p>
-    <div class="io-description">
-                <div>
-                    <pre class="line-numbers"><code class="language-html">&lt;acr-colored-circle [size]=&quot;150&quot; [color]=&quot;'red'&quot;&gt;&lt;/acr-colored-circle&gt;</code></pre>
-                </div>
-    </div>
 
-<section>
+
+<section data-compodoc="block-metadata">
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover metadata">
         <tbody>
+
 
 
 
@@ -98,15 +157,17 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>acr-colored-circle</code></td>
+                <td class="col-md-9"><code>acr-colored-circle-component</code></td>
             </tr>
+
+
 
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./colored-circle.component.html</code></td>
+                <td class="col-md-9"><code>./colored-circle-component.html</code></td>
             </tr>
 
 
@@ -120,7 +181,7 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -135,10 +196,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#color">color</a>
+                                <a href="#color" >color</a>
                             </li>
                             <li>
-                                <a href="#size">size</a>
+                                <a href="#size" >size</a>
                             </li>
                         </ul>
                     </td>
@@ -152,7 +213,7 @@
 </section>
 
 
-    <section>
+    <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -164,12 +225,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;lightgray&#x27;</code>
+                        <i>Standardwert : </i><code>&#x27;lightgray&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definiert in <a href="" data-line="20" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle/colored-circle.component.ts:20</a></div>
+                                    <div class="io-line">Definiert in <a href="" data-line="13" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle-component/colored-circle-component.ts:13</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -190,12 +251,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>100</code>
+                        <i>Standardwert : </i><code>100</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definiert in <a href="" data-line="26" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle/colored-circle.component.ts:26</a></div>
+                                    <div class="io-line">Definiert in <a href="" data-line="18" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle-component/colored-circle-component.ts:18</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -215,71 +276,44 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
-
-/**
- * Zeigt einen Kreis an
- *
- * @example
- * &lt;acr-colored-circle [size]&#x3D;&quot;150&quot; [color]&#x3D;&quot;&#x27;red&#x27;&quot;&gt;&lt;/acr-colored-circle&gt;
- */
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, input } from &#x27;@angular/core&#x27;;
 
 @Component({
-  selector: &#x27;acr-colored-circle&#x27;,
-  templateUrl: &#x27;./colored-circle.component.html&#x27;
+  selector: &#x27;acr-colored-circle-component&#x27;,
+  imports: [],
+  templateUrl: &#x27;./colored-circle-component.html&#x27;
 })
 export class ColoredCircleComponent {
 
   /**
-   * CSS kompatibler Farbname: https://developer.mozilla.org/de/docs/Web/CSS/Farben#farbschlüsselwörter
-   */
-  @Input()
-  color &#x3D; &#x27;lightgray&#x27;;
+    * CSS kompatibler Farbname: https://developer.mozilla.org/de/docs/Web/CSS/Farben#farbschlüsselwörter
+    */
+  color &#x3D; input(&#x27;lightgray&#x27;);
 
   /**
    * Durchmesser in Pixel
    */
-  @Input()
-  size &#x3D; 100;
-
+  size &#x3D; input(100);
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;display: inline-block;&quot; [style.width]&#x3D;&quot;size + &#x27;px&#x27;&quot; [style.height]&#x3D;&quot;size + &#x27;px&#x27;&quot; [style.borderRadius]&#x3D;&quot;size/2 + &#x27;px&#x27;&quot; [style.backgroundColor]&#x3D;&quot;color&quot;&gt;&lt;/div&gt;
-</code></pre>
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;display: inline-block;&quot; [style.width]&#x3D;&quot;size + &#x27;px&#x27;&quot; [style.height]&#x3D;&quot;size + &#x27;px&#x27;&quot; [style.borderRadius]&#x3D;&quot;size/2 + &#x27;px&#x27;&quot; [style.backgroundColor]&#x3D;&quot;color&quot;&gt;&lt;/div&gt;</code></pre>
     </div>
 
 
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html Element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html Element mit directive</span>
-            </div>
-        </div>
-    </div>
 
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div style="display: inline-block;" [style.width]="size + \'px\'" [style.height]="size + \'px\'" [style.borderRadius]="size/2 + \'px\'" [style.backgroundColor]="color"></div></div>'
-    var COMPONENTS = [{'name': 'ColoredCircleComponent', 'selector': 'acr-colored-circle'}];
+    var COMPONENTS = [{'name': 'ColoredCircleComponent', 'selector': 'acr-colored-circle-component'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ColoredCircleComponent'};
 </script>
@@ -294,14 +328,16 @@ export class ColoredCircleComponent {
 
 
 
-                   
+
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> übereinstimmende Ergebnisse "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -313,6 +349,15 @@ export class ColoredCircleComponent {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
@@ -320,18 +365,30 @@ export class ColoredCircleComponent {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

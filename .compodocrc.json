@@ -5,5 +5,8 @@
   "output": "docs",
   "theme": "readthedocs",
   "hideGenerator": true,
-  "disableDependencies": true
+  "disableDependencies": true,
+  "disableRoutesGraph": true,
+  "disableDomTree": true,
+  "disableCoverage": true
 }

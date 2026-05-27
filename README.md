@@ -2,7 +2,7 @@ Angular Coding Resources
 ========================
 Library für den Angular Programmier Kurs von Jürg Danuser. 
 
-[Dokumentation](https://tschuegge.github.io/angular-coding-resources/)
+[Dokumentation](https://tschuegge.github.io/AngularCodingResources/)
 
 Installation
 ------------
@@ -13,21 +13,16 @@ Verwendung
 Das Library-Modul kann im Root-Modul geladen werden.
 
 ```ts
-// Root Module (Datei: src/app.module.ts)
+// ColoredCircle vom npm-Package importieren
+import { ColoredCircle } from '@tschuegge/angular-coding-resources'
 
-// AngularCodingResourcesModule vom npm-Package importieren
-import { AngularCodingResourcesModule } from '@tschuegge/angular-coding-resources';
-
-// AngularCodingResourcesModule im Root-Modul registrieren
-@NgModule({
-  // ...
-  imports: [
-    // ...
-    AngularCodingResourcesModule // AngularCodingResourcesModule im Array "imports" hinzufügen
-  ],
-  // ...
+// ColoredCircle in die Component importieren
+@Component({
+  selector: 'my-component',
+  imports: [ColoredCircle],
+  templateUrl: './my-component.html'
 })
-export class AppModule { }
+export class MyComponent { }
 ```
 
 Danach kann beispielsweise die ColoredCircleComponent in den Templates verwendet werden.

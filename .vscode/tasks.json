@@ -3,32 +3,24 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "build",
-			"group": "build",
-			"problemMatcher": [],
-			"label": "build",
-			"detail": "ng build --prod"
-		},
-		{
-			"type": "npm",
-			"script": "doc",
-			"problemMatcher": [],
-			"label": "generate doc",
-			"detail": "npx compodoc --language de-DE"
-		},
-		{
-			"type": "npm",
 			"script": "npmpublish",
 			"problemMatcher": [],
-			"label": "publish to npm",
-			"detail": "ng build --prod && npx compodoc --language de-DE && cpx \"./{README.md,CHANGELOG.md}\" ./projects/angular-coding-resources -u && npm publish ./dist/angular-coding-resources --access public"
+			"label": "Build and publish to NPM",
+			"detail": "ng build && npx compodoc --language de-DE && cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources && npm publish ./dist/angular-coding-resources --access public"
 		},
 		{
 			"type": "npm",
 			"script": "npmpublish-dry",
 			"problemMatcher": [],
-			"label": "npm: npmpublish-dry",
-			"detail": "ng build --prod && npx compodoc --language de-DE && cpx \"./{README.md,CHANGELOG.md}\" ./projects/angular-coding-resources -u"
+			"label": "Build without publishing to NPM",
+			"detail": "ng build && npx compodoc --language de-DE && cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources"
+		},
+		{
+			"type": "npm",
+			"script": "doc",
+			"problemMatcher": [],
+			"label": "Build docs",
+			"detail": "npx compodoc --language de-DE"
 		}
 	]
 }

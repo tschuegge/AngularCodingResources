@@ -1,11 +1,13 @@
-Changelog
-=========
+2.0.1 (2026-05-27)
+==================
+- Verbesserung der Dokumentation
+- Aktualisierung auf Angular 21 und Rebuild
 
 1.0.1 (2021-02-14)
 ------------------
 - Aktualisierung auf Angular 11.2
 
 1.0.0 (2020-03-22)
-------------------
+==================
 - ColoredCircleComponent implementiert
 - Dokumentation eingerichtet
