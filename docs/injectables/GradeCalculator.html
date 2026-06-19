@@ -94,7 +94,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -104,109 +104,66 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Komponenten</li>
-  <li class="breadcrumb-item"
-  >
-  ColoredCircle</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GradeCalculator</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a href="#info" class="nav-link active"
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
-            <a href="#source" class="nav-link"
+            <a href="#source" 
+                class="nav-link"
+                
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li class="nav-item">
-            <a href="#templateData" class="nav-link"
-                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
-    <h3>Datei</h3>
-</p>
-<p class="comment">
-    <code>projects/angular-coding-resources/src/lib/colored-circle/colored-circle.ts</code>
-</p>
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Datei</h3>
+        </p>
+        <p class="comment">
+            <code>projects/angular-coding-resources/src/lib/grade-calculator/grade-calculator.ts</code>
+        </p>
 
 
-    <p class="comment">
-        <h3>Beschreibung</h3>
-    </p>
-    <p class="comment">
-        <p>Komponente welche einen farbigen Kreis ausgibt</p>
+            <p class="comment">
+                <h3>Beschreibung</h3>
+            </p>
+            <p class="comment">
+                <p>Service der Noten nach der schweizerischen Notenskala (1-6, 6 ist die Bestnote) auf 1/10 genau ausrechnet.
+Der Service beinhaltet Fehler, damit er getestet werden kann.</p>
 
-    </p>
-
-
-
-
-<section data-compodoc="block-metadata">
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover metadata">
-        <tbody>
+            </p>
 
 
 
-
-
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>acr-colored-circle</code></td>
-            </tr>
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./colored-circle.html</code></td>
-            </tr>
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section data-compodoc="block-index">
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
 
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
+                        <h6><b>Methoden</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#color" >color</a>
-                            </li>
-                            <li>
-                                <a href="#size" >size</a>
+                                <a href="#calcGradeByPoints" >calcGradeByPoints</a>
                             </li>
                         </ul>
                     </td>
@@ -215,123 +172,154 @@
 
 
 
+
         </tbody>
     </table>
 </section>
 
 
-    <section data-compodoc="block-inputs">
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="color"></a>
-                        <b>color</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Standardwert : </i><code>&#x27;lightgray&#x27;</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definiert in <a href="" data-line="16" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle/colored-circle.ts:16</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>CSS kompatibler Farbname: <a href="https://developer.mozilla.org/de/docs/Web/CSS/Farben#farbschl%C3%BCsselw%C3%B6rter">https://developer.mozilla.org/de/docs/Web/CSS/Farben#farbschlüsselwörter</a></p>
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methoden
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcGradeByPoints"></a>
+                    <span class="name">
+                        <span ><b>calcGradeByPoints</b></span>
+                        <a href="#calcGradeByPoints"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcGradeByPoints(pointsReached: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pointsMaximum: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definiert in <a href="" data-line="20"
+                                    class="link-to-prism">projects/angular-coding-resources/src/lib/grade-calculator/grade-calculator.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Berechnet eine Note nach der schweizerischen Notenskala
+Vorsicht, in dieser Methode sind Fehler enthalten als Beispiel für das Testing.</p>
 </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="size"></a>
-                        <b>size</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Standardwert : </i><code>100</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Definiert in <a href="" data-line="21" class="link-to-prism">projects/angular-coding-resources/src/lib/colored-circle/colored-circle.ts:21</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Durchmesser in Pixel</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+                            <div class="io-description">
+                                <b>Parameter :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Typ</td>
+                                            <td>Optional</td>
+                                                <td>Beschreibung</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pointsReached</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Erreichte Anzahl Punkte</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>pointsMaximum</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Nein
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Maximale Anzahl Punkte</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Note gerundet auf 1/10</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
-
-
-
-
-</div>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
 /**
- * Komponente welche einen farbigen Kreis ausgibt
+ * Service der Noten nach der schweizerischen Notenskala (1-6, 6 ist die Bestnote) auf 1/10 genau ausrechnet.
+ * Der Service beinhaltet Fehler, damit er getestet werden kann.
  */
-@Component({
-  selector: &#x27;acr-colored-circle&#x27;,
-  imports: [],
-  templateUrl: &#x27;./colored-circle.html&#x27;
+@Injectable({
+  providedIn: &#x27;root&#x27;,
 })
-export class ColoredCircle {
+export class GradeCalculator {
 
   /**
-   * CSS kompatibler Farbname: https://developer.mozilla.org/de/docs/Web/CSS/Farben#farbschlüsselwörter
+   * Berechnet eine Note nach der schweizerischen Notenskala
+   * Vorsicht, in dieser Methode sind Fehler enthalten als Beispiel für das Testing.
+   * 
+   * @param pointsReached Erreichte Anzahl Punkte
+   * @param pointsMaximum Maximale Anzahl Punkte
+   * @returns Note gerundet auf 1/10
    */
-  color &#x3D; input(&#x27;lightgray&#x27;);
+  calcGradeByPoints(pointsReached: number, pointsMaximum: number): number {
 
-  /**
-   * Durchmesser in Pixel
-   */
-  size &#x3D; input(100);
+    // Check Input Values
+    if (pointsMaximum &lt; 0) { // Fault to be found: Points maximum can be 0 (division by zero)
+      throw new Error(&quot;pointsMaximum must be greater than 0&quot;);
+    }
+    if (pointsReached &lt;&#x3D; 0) {
+      throw new Error(&quot;pointsReached must be greater than 0&quot;);
+    }
+    if (pointsReached &gt; pointsMaximum) {
+      // throw new Error(&quot;pointsReached cannot be greater than pointsMaximum&quot;); # Fault to be found: Points reached can be greater than maximum
+    }
+
+    return Math.round(((pointsReached / pointsMaximum) * 5 + 1) * 10) / 10;
+  }
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;display: inline-block;&quot; [style.width]&#x3D;&quot;size() + &#x27;px&#x27;&quot; [style.height]&#x3D;&quot;size() + &#x27;px&#x27;&quot; [style.borderRadius]&#x3D;&quot;size()/2 + &#x27;px&#x27;&quot; [style.backgroundColor]&#x3D;&quot;color()&quot;&gt;&lt;/div&gt;</code></pre>
-    </div>
-
-
-
-    
 </div>
-
-<script src="../js/libs/vis-network.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><div style="display: inline-block;" [style.width]="size() + \'px\'" [style.height]="size() + \'px\'" [style.borderRadius]="size()/2 + \'px\'" [style.backgroundColor]="color()"></div></div>'
-    var COMPONENTS = [{'name': 'ColoredCircle', 'selector': 'acr-colored-circle'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'ColoredCircle'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
 
 
 
@@ -370,8 +358,8 @@ export class ColoredCircle {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'ColoredCircle.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GradeCalculator.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

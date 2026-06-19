@@ -8,9 +8,9 @@ Installation
 ------------
 Die Library kann über npm installiert werden: `npm install @tschuegge/angular-coding-resources`
 
-Verwendung
-----------
-Das Library-Modul kann im Root-Modul geladen werden.
+Verwendung ColoredCircle
+------------------------
+Die Component kann als Standalone-Component verwendet werden.
 
 ```ts
 // ColoredCircle vom npm-Package importieren
@@ -25,8 +25,27 @@ import { ColoredCircle } from '@tschuegge/angular-coding-resources'
 export class MyComponent { }
 ```
 
-Danach kann beispielsweise die ColoredCircleComponent in den Templates verwendet werden.
+Danach kann die ColoredCircle im Template verwendet werden.
 
 ```html
 <acr-colored-circle [size]="150" [color]="'red'"></acr-colored-circle>
 ```
+
+Verwendung GradeCalculator
+--------------------------
+Dieser Service beinhaltet Fehler die mittels Testing herausgefunden werden sollen.
+
+```ts
+// ColoredCircle vom npm-Package importieren
+import { GradeCalculator } from '@tschuegge/angular-coding-resources'
+
+@Component({
+  selector: 'my-component',
+  imports: [],
+  templateUrl: './my-component.html'
+})
+export class MyComponent {
+  
+  // GradeCalculator Service in der Component injecten
+  calc = inject(GradeCalculator);
+}

@@ -1,5 +1,8 @@
 import { Component, input } from '@angular/core';
 
+/**
+ * Komponente welche einen farbigen Kreis ausgibt
+ */
 @Component({
   selector: 'acr-colored-circle',
   imports: [],

@@ -1,13 +1,13 @@
 {
   "name": "angular-coding-resources",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "doc": "npx compodoc --language de-DE",
-    "npmpublish": "ng build && npx compodoc --language de-DE && cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources && npm publish ./dist/angular-coding-resources --access public",
-    "npmpublish-dry": "ng build && npx compodoc --language de-DE && cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources",
+    "npmpublish": "cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources && ng build AngularCodingResources && npx compodoc --language de-DE && npm publish ./dist/angular-coding-resources --access public",
+    "npmpublish-dry": "cp ./README.md ./projects/angular-coding-resources && cp ./CHANGELOG.md ./projects/angular-coding-resources && ng build AngularCodingResources && npx compodoc --language de-DE",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

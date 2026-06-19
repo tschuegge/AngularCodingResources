@@ -100,11 +100,11 @@
 
 <h1>Angular Coding Resources</h1>
 <p>Library für den Angular Programmier Kurs von Jürg Danuser. </p>
-<p><a href="https://tschuegge.github.io/angular-coding-resources/">Dokumentation</a></p>
+<p><a href="https://tschuegge.github.io/AngularCodingResources/">Dokumentation</a></p>
 <h2>Installation</h2>
 <p>Die Library kann über npm installiert werden: <code>npm install @tschuegge/angular-coding-resources</code></p>
-<h2>Verwendung</h2>
-<p>Das Library-Modul kann im Root-Modul geladen werden.</p>
+<h2>Verwendung ColoredCircle</h2>
+<p>Die Component kann als Standalone-Component verwendet werden.</p>
 <b>Beispiel :</b><div><pre class="line-numbers"><code class="language-ts">// ColoredCircle vom npm-Package importieren
 import { ColoredCircle } from &#39;&#64;tschuegge/angular-coding-resources&#39;
 
@@ -114,8 +114,22 @@ import { ColoredCircle } from &#39;&#64;tschuegge/angular-coding-resources&#39;
   imports: [ColoredCircle],
   templateUrl: &#39;./my-component.html&#39;
 })
-export class MyComponent { }</code></pre></div><p>Danach kann beispielsweise die ColoredCircleComponent in den Templates verwendet werden.</p>
-<b>Beispiel :</b><div><pre class="line-numbers"><code class="language-html">&lt;acr-colored-circle [size]=&quot;150&quot; [color]=&quot;&#39;red&#39;&quot;&gt;&lt;/acr-colored-circle&gt;</code></pre></div>
+export class MyComponent { }</code></pre></div><p>Danach kann die ColoredCircle im Template verwendet werden.</p>
+<b>Beispiel :</b><div><pre class="line-numbers"><code class="language-html">&lt;acr-colored-circle [size]=&quot;150&quot; [color]=&quot;&#39;red&#39;&quot;&gt;&lt;/acr-colored-circle&gt;</code></pre></div><h2>Verwendung GradeCalculator</h2>
+<p>Dieser Service beinhaltet Fehler die mittels Testing herausgefunden werden sollen.</p>
+<b>Beispiel :</b><div><pre class="line-numbers"><code class="language-ts">// ColoredCircle vom npm-Package importieren
+import { GradeCalculator } from &#39;&#64;tschuegge/angular-coding-resources&#39;
+
+&#64;Component({
+  selector: &#39;my-component&#39;,
+  imports: [],
+  templateUrl: &#39;./my-component.html&#39;
+})
+export class MyComponent {
+  
+  // GradeCalculator Service in der Component injecten
+  calc = inject(GradeCalculator);
+}</code></pre></div>
 
 
 
