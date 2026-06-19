@@ -23,8 +23,8 @@ export class GradeCalculator {
     if (pointsMaximum < 0) { // Fault to be found: Points maximum can be 0 (division by zero)
       throw new Error("pointsMaximum must be greater than 0");
     }
-    if (pointsReached <= 0) {
-      throw new Error("pointsReached must be greater than 0");
+    if (pointsReached < 0) {
+      throw new Error("pointsReached can not be smaller than 0");
     }
     if (pointsReached > pointsMaximum) {
       // throw new Error("pointsReached cannot be greater than pointsMaximum"); # Fault to be found: Points reached can be greater than maximum

@@ -1,3 +1,7 @@
+2.1.1 (2026-06-19)
+==================
+- Fehler bei GradeCalculator behoben, der verhinderte dass Note 1.0 ausgegeben wurde
+
 2.1.0 (2026-06-19)
 ==================
 - Service zur Berechnung von Noten (inkl. Fehler fürs Testing) integriert
